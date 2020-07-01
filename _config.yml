@@ -27,7 +27,7 @@ url: sravanthi-mahankali.github.io # the base hostname & protocol for your site,
 github_username:  sravanthi-mahankali
 
 # Build settings
-theme: jekyll-theme-cayman
+theme: minima
 plugins:
   - jekyll-feed
 
