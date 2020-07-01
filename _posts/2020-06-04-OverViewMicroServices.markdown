@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Big picture microservices" 
+permalink: /:title
 ---
 
 ##### Understanding micro services from 10,000 feet level

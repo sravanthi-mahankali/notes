@@ -1,6 +1,7 @@
 ---
 layout: post
-title: "Consulting 101" 
+title: "Consulting 101"
+permalink: /:title
 ---
 ### Key things to be considered
 

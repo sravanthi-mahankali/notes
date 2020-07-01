@@ -1,7 +1,9 @@
 ---
 layout: post
 title:  "Appsec"
+permalink: /:title
 ---
+layout: post
 All the important concepts in App Sec and quick referce to what I learned
 #### [Known Vulnerabilities](link should be here)
 ### Security Blankets

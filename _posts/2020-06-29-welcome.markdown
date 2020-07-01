@@ -3,6 +3,7 @@ layout: post
 title:  "Welcome"
 date:   2020-06-29 12:56:56 +0530
 categories: jekyll update
+permalink: /:title
 ---
 1. Writing the setup for the git hub pages 
 
