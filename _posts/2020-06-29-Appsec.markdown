@@ -1,0 +1,123 @@
+---
+layout: post
+title:  "Appsec"
+---
+All the important concepts in App Sec and quick referce to what I learned
+#### [Known Vulnerabilities](link should be here)
+### Security Blankets
+* Awareness
+* Build Security from start
+* Defense in depth
+* Privacy of information
+* Least privilage
+* Whitelisting (then Blacklisting)
+* Minimize attact area
+* Don't use untrust data
+* Seperate data from code
+* Don't trust input
+* Secure by default
+* You can't secure what you don't understand
+* Keep secrets secret
+* Secruity must be usable 
+* Stay up to date
+* use existing security solution (Don't reinvent the wheel)
+
+---
+
+## Intro to Threat Modeling
+
+What :
+   ```
+   identify risks & mitigation Strategies 
+    (who involued)
+       -> Product owners
+       -> Delivery Team
+       -> Domain experts
+       -> Security SME
+       -> Business owners
+   ```
+   ---
+
+> **_NOTE:_**  One pill for all Ills (Threat Modeling).
+
+Things each role should consider:
+
+| Business / Product owners | Delivery Team  | 
+| ------------- |:-------------|
+| -> What kind of inverstments should I make ? | -> How do i minimise the impact of a breach |
+|  -> Do I really need to worry | -> Are we focusing on the right area to secure |
+| -> What should i secure | -> What tech controls we put in |
+| -> Where do we begin | -> Where do we begin |
+
+
+> Threat modeling can be viewed in 2 levels
+ - Business Level
+ - Appication Level
+
+----
+
+### Business Level Threat Modeling
+
+#### PreCursors
+> ### Understanding CIA
+    Why to protect is decided based on CIA triad
+       -> C - confidentiality
+       -> I - integrity
+       -> A - Avaulability
+       
+> ### Identify Business workflows
+    if business flows are identified we can apply CIA
+
+> ### Identify Actors
+    why to list 
+      -> to identify the entities that participate in the system 
+      -> to understand the system before you start threat modeling 
+         so that you can consider the possible risks of their interaction
+
+----
+
+### Appication Level Threat Modeling
+
+#### PreCursors
+        S T R I D E
+
+### S - Spoofing 
+                Pretending to be someone or something else
+                
+### T - Tampering
+                Maliciously modify data or code for persistant
+                           data or data in transit
+
+### R - Repudation 
+                To ilegally perform actions that can't be traced back
+                           to the origin of the action
+
+### I - Information Disclosure
+                Expose information to someone not authorised
+
+### D - Denial of service
+                To deny or degrade the services requests by users
+
+### E - Elevation od privilege
+                To gain authorised permisions beyond those
+                            initially granted
+
+****
+
+#### Approches to application threat modeling
+
+1. Data flow diagrams
+
+    create a data flow  ----> identify the trusted boundaries --------> idenfiy threats (using STRIDE)
+2. Cornucopia cards
+
+    its a game based approach developed by owasp
+3. Attack trees
+
+    wear the hat of aattacker (depth of the security is optained)
+
+
+
+
+
+
