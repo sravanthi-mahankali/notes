@@ -35,7 +35,7 @@
             {% for category in page.categories %}
             <h2>{{category | capitalize}}</h2>
             {% for post in site.categories[category] %}
-            <li><a class ="post-list" href="/notes{{ post.url }}">{{ post.title }}</a></li>
+            <li><a class="page-link " href="/notes{{post.url}}">{{post.title}}</a></li>
             {% endfor %}
             {% endfor %}
         </div>
