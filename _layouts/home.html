@@ -25,7 +25,7 @@
     <main class="page-content" aria-label="Content">
         <div class="wrapper">
             <h1>Posts</h1>
-            {% for cat in site.categories%}
+            {% for cat in site.categories %}
             <section class="category-wrapper">
                 <input type="checkbox" name="collapse" id="{{cat[0]}}">
                 <h2>
@@ -33,7 +33,7 @@
                 </h2>
                 <div class="post-list category-blog-list ">
                     {% for post in cat[1] %}
-                    <li><a class="page-link " href="/notes/{{post.url}}">{{post.title}}</a></li>
+                    <li><a class="page-link " href="/notes{{post.url}}">{{post.title}}</a></li>
                     {% endfor %}
                 </div>
             </section>

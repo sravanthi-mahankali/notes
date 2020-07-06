@@ -30,7 +30,15 @@
             </nav>
         </div>
     </header>
-    <main class="page-content" aria-label="Content">
+    <main class="page-content blog-page-content" aria-label="Content">
+        <div class="sidebar-cartegory-navigation">
+            {% for category in page.categories %}
+            <h2>{{category | capitalize}}</h2>
+            {% for post in site.categories[category] %}
+            <li><a class ="post-list" href="{{ post.url }}">{{ post.title }}</a></li>
+            {% endfor %}
+            {% endfor %}
+        </div>
         <div class="wrapper">
             <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
                 <header class="post-header">
