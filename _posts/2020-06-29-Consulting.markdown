@@ -1,7 +1,8 @@
 ---
-layout: post
+layout: blog
 title: "Consulting 101"
 permalink: /:title
+categories: workshops
 ---
 ### Key things to be considered
 

@@ -1,7 +1,8 @@
 ---
-layout: post
+layout: blog
 title: "Http Status codes" 
 permalink: /:title
+categories: WebConcepts
 ---
 #### Broadly the status codes are as follows
 

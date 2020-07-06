@@ -1,7 +1,8 @@
 ---
-layout: post
+layout: blog
 title: "Big picture microservices" 
 permalink: /:title
+categories: "microservices"
 ---
 
 ##### Understanding micro services from 10,000 feet level

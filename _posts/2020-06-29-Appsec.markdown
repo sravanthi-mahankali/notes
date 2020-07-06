@@ -1,7 +1,8 @@
 ---
-layout: post
+layout: blog
 title:  "Appsec"
 permalink: /:title
+categories: "appsec"
 ---
 layout: post
 All the important concepts in App Sec and quick referce to what I learned
