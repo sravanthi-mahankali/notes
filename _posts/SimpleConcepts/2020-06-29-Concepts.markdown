@@ -1,0 +1,18 @@
+---
+layout: blog 
+title:  "Concepts"
+permalink: /:title
+categories: SimpleConcepts
+---
+
+### SSH
+ - How ssh works
+ forms the packets with the following details <br>
+  >  *[ <br>
+      it contains -  header of length of the packet <br>
+                      + <br>
+      encrpt(length of padding + data + padding) <br>
+                      + <br>
+                MAC address <br>
+    ]*
+
