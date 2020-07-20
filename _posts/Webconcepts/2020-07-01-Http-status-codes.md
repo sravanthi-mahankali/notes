@@ -79,6 +79,9 @@ This response is sent on an idle connection by some servers, even without any pr
 #### *409 Conflict*
 This response is sent when a request conflicts with the current state of the server.
 
+#### *422 Unprocessable entity*
+server understands the request contect but it is unable to process it (ex: business rule failures )
+
 ### Server error responses
 
 #### *500 Internal Server Error*

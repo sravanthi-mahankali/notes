@@ -38,9 +38,6 @@ cast Objects in to proper types before interactng with the data bases .....
   can use java script to reduce the reputation
   can use to steal the user cookies - which ca pertimt session hacking
 
-
-
-
 ### SSl vs TLS
    
  SSl is the older version and TSL is a newer version 
