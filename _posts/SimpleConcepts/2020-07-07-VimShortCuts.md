@@ -26,4 +26,14 @@ categories: SimpleConcepts
 | y | copy | p | paste |
 | :%s/word/with/gc | replace the with with word and </br> asks for every occurance of with |
 
+### ZSH short cuts
 
+| **Shortcut** | **Action** |
+|CTRL + A |	Move to the beginning of the line|
+|CTRL + E |	Move to the end of the line|
+|CTRL + U (zsh)	| If you're using the zsh, this will clear the entire line|
+|CTRL + K	| Clear the characters on the line after the current cursor position|
+|CTRL + W	| Delete the word in front of the cursor|
+|CTRL + R	| Search history|
+|CTRL + _	| Undo the last change|
+|!!	| Execute last command in history|
