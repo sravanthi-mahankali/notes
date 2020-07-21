@@ -21,11 +21,11 @@ categories: WebConcepts
   I trust   |     so they can verify who I am.            |
             |    <----------------------------------      |
             |                                             |
-            |   I generate a 'pre-master key' so we can   |
-            |           both use it later when we         |
-            |             generate a unique key.          |
-            |      I encrypt that pre-master key with     |  I use my private key to decrypt
-            | server's public key and then send it to him.|      the pre-master key.
+            |   I generate a 'pre-master key' so we can   | I use my private 
+            |           both use it later when we         | key to decrypt
+            |             generate a unique key.          | the pre-master key.
+            |      I encrypt that pre-master key with     |  
+            | server's public key and then send it to him.|      
             |                                             |
             | ------------------------------------------> |
 
