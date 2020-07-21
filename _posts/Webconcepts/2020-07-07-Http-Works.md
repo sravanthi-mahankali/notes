@@ -24,8 +24,8 @@ categories: WebConcepts
             |   I generate a 'pre-master key' so we can   | I use my private 
             |           both use it later when we         | key to decrypt
             |             generate a unique key.          | the pre-master key.
-            |      I encrypt that pre-master key with     |  
-            | server's public key and then send it to him.|      
+            |      I encrypt that pre-master key with     |
+            | server's public key and then send it to him.|
             |                                             |
             | ------------------------------------------> |
 
@@ -51,3 +51,15 @@ categories: WebConcepts
 ```
 
 ### How browser will verify the authorised CA
+ - servers will ask the CA to sign their certificate with the keypair
+ - the CA will sign the certificate with its private key and says any one with my
+      public key can verify that it was me who signed it
+
+ - Generally when the browsers are delivered they have most common CA public keys 
+ - with the help of them they can verify that it is trusted
+
+ ### self signed certificates
+ -  to verify that it is trusted the browser should now the public
+      key with which it was signed, it some one need place the public
+      key in the machine
+
