@@ -58,7 +58,7 @@ categories: WebConcepts
  - Generally when the browsers are delivered they have most common CA public keys 
  - with the help of them they can verify that it is trusted
 
- ### self signed certificates
+### self signed certificates
  -  to verify that it is trusted the browser should now the public
       key with which it was signed, it some one need place the public
       key in the machine
