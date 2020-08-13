@@ -11,7 +11,9 @@ categories: WebConcepts
 3. Redirects (300–399),
 4. Client errors (400–499),
 5. and Server errors (500–599).
+
 | **code** | **usage**|
+| ------------- |:-------------|
 |100	|Continue|
 |101	|Switching Protocols|
 |102	|Processing|
