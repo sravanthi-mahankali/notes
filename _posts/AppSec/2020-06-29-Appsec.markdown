@@ -121,6 +121,22 @@ Things each role should consider:
 
 
 
+https://www.hacksplaining.com/
+- [ ] Injection
+- [ ] XSS
+- [ ] Broken authencitaction
+    - [ ] Session hijacking
+    - [ ] Geting to know the user names exits or not
+    - [ ] Weak session id
+- [ ] Broken accès control
+    - [ ] Weak session secret
+    - [ ] No encryption for cookie
+    - [ ] If not signature they can use cookies to get access
+- [ ] Insufficenent logging
+    - [ ] Log security event
+    - [ ] Audit trials
+    - [ ] Secure the log files
+- [ ] XML External Entities
 
 
 
