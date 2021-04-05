@@ -8,13 +8,15 @@ categories: SimpleConcepts
 ### SSH
  - How ssh works
  forms the packets with the following details <br>
-  >  *[  
+``` 
+    [  
       it contains -  header of length of the packet  
-      +   
+                    +   
       encrpt(length of padding + data + padding)  
-      +  
-      MAC address  
-    ]*
+                    +  
+                MAC address  
+    ]
+ ```
 
 ## markdowm 
 
