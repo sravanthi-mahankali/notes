@@ -37,3 +37,5 @@ categories: SimpleConcepts
 |CTRL + R	| Search history|
 |CTRL + _	| Undo the last change|
 |!!	| Execute last command in history|
+| option + right arrow| move one word right|
+| option + left arrow | move one word left |

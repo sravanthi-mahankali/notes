@@ -8,11 +8,90 @@ categories: SimpleConcepts
 ### SSH
  - How ssh works
  forms the packets with the following details <br>
-  >  *[ <br>
-      it contains -  header of length of the packet <br>
-                      + <br>
-      encrpt(length of padding + data + padding) <br>
-                      + <br>
-                MAC address <br>
+  >  *[  
+      it contains -  header of length of the packet  
+      +   
+      encrpt(length of padding + data + padding)  
+      +  
+      MAC address  
     ]*
+
+## markdowm 
+
+line break - 2 spaces
+headers  6 header levels (using #)
+emphasis  
+- _itallic_ - use single underscore or astrick 
+- __Strong emphasis__ - use double underscore or double astrick
+- escape the underscore with backslash 
+
+Quotes  
+> greater than symbol
+
+code  
+- inline code - backtick `code`
+```
+multi  
+line code
+```
+
+list  
+
+- unorderedList
+  + use plus 
+  - use dash
+  * use astrick
+
+- orderList
+  + use numbers in any order it will render in correct order
+
+Horizontalrules  
+- three dash
+---
+- three underscores
+___
+- three astricks
+***
+
+### Links
+one of the most popular search engine is [Google](http://google.com "Google Search").
+
+This one is different way [Different][diff]
+
+[diff]: http://google.com "Different way"
+
+```
+one of the most popular search engine is [Google](http://google.com "Google Search").
+
+different way [diff]: http://google.com "Different way" 
+```
+angular brackets for email and web site <http://google.com>
+
+### Images
+ - inline images ![Demo](http://placehold.it/250x150).  
+
+ ```![Demo](path/250x150)```
+
+- use reference
+![demo][DemoRef]
+
+[DemoRef]:http://placehold.it/300 "Refernce holder"
+
+
+### inline Html
+
+i want to add a definition list
+<dl>
+<dt>markdown</dt>
+<dd>An awsome language.</dd>
+</dl>
+
+Here is the code  
+```
+<dl>
+    <dt>markdown</dt>
+    <dd>An awsome language.</dd>
+</dl>
+```
+
 
