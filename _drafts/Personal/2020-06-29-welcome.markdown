@@ -7,4 +7,100 @@ categories: Personal
 ---
 1. Writing the setup for the git hub pages 
 
-2. jeklly thinks I have learnt 
+2. jeklly thinks I have learnt
+
+
+
+This is part one of a series on Redux Toolkit. This will focus on Redux Toolkit Query and how we have used it to move away from Redux Saga.
+
+Part two focuses on Redux Toolkit Listeners, again to move away from Redux Saga.
+
+Warning: This is a pretty long read! 
+
+React and Redux have been around for quite some time now. Some code bases which use these libraries have kept up to date with changes to both over that time, many though, have not. That’s life really, it’s hard to keep on top of everything shiny and new in the React ecosystem. Things move fast.
+
+However, because they’ve been around for so long, there are  decent wins to be had from migrating to a more modern way of doing things. This is especially true of Redux. We have been going through some of these changes in Accounting Components and wanted to share how that has gone, our reasoning behind the changes, wins we’ve had, challenges we’ve faced and a walkthrough of how a chunk of our refactor has gone.
+
+Redux, Redux Toolkit and Redux Saga?
+If you are reading this, you probably already know what these libraries are for. If not, I’ll run through each briefly to give a little more context.
+
+Redux
+So you want to move to modern Redux and you don’t know what Redux is? Probably not but here’s my take on Redux.
+
+Redux is a centralised way to store your application state in a Front End Application. It works with other Front End frameworks, but it is most commonly associated with React.
+
+
+Once any SPA gets big enough, some kind of centralised store for state is highly recommended essential. Otherwise, passing props between components gets convoluted and really, really messy. Having a central store for application state removes this problem. To update state, a component dispatches an action containing a payload which will tell the state to update in some way, shape or form. Once that part of state has updated, then any other components which have the updated part of state as a prop, will re-render. The diagram here sums it up pretty succinctly.  
+
+Redux Saga
+One thing that Redux isn’t capable of, out of the box, is the dispatching of actions asynchronously. This is a pretty common use case for a Front End’s application state. Most modern front end application need to get data from an API in order to do things like build a dropdown menu’s options. This is where Redux Saga comes in. It is a middleware library used to allow Redux to interact with other resources asynchronously. Using Redux Saga, we can hit an API to get the data we need for a dropdown, store the returned data in the Redux store, and have our Front End render all the dropdown options it needs.
+
+Saga is a library that is used extensively around Xero and it is integrated into the great SPA Boilerplate tool that most SPAs use to get started. So like a lot of teams at Xero, we reached for Saga when we needed to do some async fetching of data and built some out our store using it. However, we have recently begun migrating away to a new tool for this purpose. I'll then go through why our team thinks it is great and why we think you should definitely consider it for your projects too.
+
+Redux Toolkit (RTK) Query
+So what is RTK Query, and why are we moving to it? RTK Query is a data fetching and caching tool. It allows us to fetch data from APIs, store them in state and have our Front End update based on that data. It sits on top of Redux Toolkit itself, which is an opinionated toolset for Redux which has been created by the Redux maintainers to help to simplify working with Redux. We love it, and we think you might too.
+
+Why migrate to RTK?
+It came down to a couple of things for us. I’ll run through generic stuff about why RTK is great before diving into RTK Query.
+
+It is recommended by the Redux maintainers
+I’ll let their docs speak for themselves
+
+Redux Toolkit makes it easier to write good Redux applications and speeds up development, by baking in our recommended best practices, providing good default behaviors, catching mistakes, and allowing you to write simpler code. Redux Toolkit is beneficial to all Redux users regardless of skill level or experience. It can be added at the start of a new project, or used as part of an incremental migration in an existing project.
+
+It helps to turn Redux form something that can be a gnarly and complicated tool, into something much easier simpler with less code to maintain.
+
+Less Boilerplate
+A massive reason to shift to RTK is to cut down on boilerplate code. Writing the same kind of reducer and action again and again and again is something I have probably done hundreds of times. However, with RTK, I just don’t have to. It does a whole bunch of heavy lifting for us without changing how Redux works.
+
+Migration is easy
+It works with old Redux code, so migrating can be done as quickly or as slowly as you’d like. We have chosen to migrate on a column by column basis for our Line Item Grid which has meant we’ve been able to uncover things as we go and then carry that over into migrating the next column.
+
+What problems does RTK Query solve?
+Separates fetching and caching from state management
+State management and data fetching and caching aren’t necessarily the same set of concerns. However, they’ve become intertwined because of how we have been using Redux for years. RTK Query allows us to seperate the two and provides us with tools that are actually purpose built for data fetching. This leads to thinking about Redux a little differently. There is an awesome quote on part of the RTK Query docs which sums it up better than I could.
+
+However, when you use RTK Query, there is a mindset shift that happens. We're no longer thinking about "managing state" per se. Instead, we now think about "managing cached data". Rather than trying to write reducers ourselves, we're now going to focus on defining "where is this data coming from?", "how should this update be sent?", "when should this cached data be re-fetched?", and "how should the cached data be updated?". How that data gets fetched, stored, and retrieved becomes implementation details we no longer have to worry about.
+
+Response and data is saved to the store for us
+We no longer have to worry about creating a pseudo-cache in the Redux store with our response. No more fetching of data and then saving it in a store slice ourselves. RTK Query handles all that for us across any components which use that part of the store. This is all done under the hood so we don’t have to store it in state ourselves. 
+
+It also gives us a bunch of stuff for free. We get booleans to indicate if the first fetch from a server has been completed  (isLoading), whether we are in the process of making a request to a server (isFetching), whether the request has succeeded (isSuccess) and if we are in an error state (isError).  Doing all of these things in Redux is easy enough, but it just leads to more code being written. Getting them up front, for free is fantastic. 
+
+It uses modern Javascript patterns for Async
+Saga uses generators to work to do it’s async magic. Some people like generators, our team does not. Generators aren’t used a huge amount outside of Saga (in my experience anyway) and as such, having to learn a whole new way of doing async stuff can be a little daunting. Teams get used to them quickly enough, but the learning curve can be steep. RTK Query lets you use async/await to do things asynchronously. This is now how we do that kind of things in Javascript, so being able to use something that the whole team is used to is a huge benefit.
+
+
+It is more Type-safe than Redux Saga
+When using yield select to get stuff out of the store, the select part returns any
+
+This gives us type safety to a degree, but the fact that we have to do that manually is a risk. If we accidentally use the wrong type here then we break type safety through our whole application.
+
+RTK Query was built with Typescript in mind and it handles all of this stuff for us under the hood to reduce the chances of any silly errors.
+
+Exposes hooks to trigger a fetch and to pull data out of the store.
+Once we have created our API (which we will demonstrate shortly) we automatically expose hooks for interacting with the cache, which our React components can consume. For example, if we have built a getTodos endpoint, then the hook useGetTodosQuery is automatically generated and can be exported. 
+
+If we call this inside one of our components, then the component will try to look in the store to see if the data is there. If it is, it will return it. Otherwise, it will trigger the request, fetch the data and then update the data variable once we have fetched what we need. This will trigger a re-render. We also see get access to isFetching, isSuccess, isError and a few others in there. We can use these to trigger loading states while the request is in flight, or display an Error state if things go wrong.
+
+
+import { useGetTodosQuery } from '../api/apiSlice'
+
+export function TodoList() {
+  const { data: todos, isFetching, isSuccess, isError } = useGetTodosQuery()
+  // Do something with the data
+}
+Potential pitfalls
+Well it isn’t all perfect obviously. We haven’t ran into too many issues yet, but we’ve flagged one potential problem up front. RTK is kind of ‘black-boxy-y’. We are ceding some control in the name of simplicity. Because of this, there is obviously the potential for some more complex problems to be hard to debug. Or a bug inside the library itself causing us problems we need to work around. I would argue though that this isn’t necessarily a bad thing. We don’t build our own front end framework these days, we trust React. And we don’t build our own state management tool, we trust Redux. We are constantly making trade offs between more control and things being easier to work on. Our team has decided this trade off is worth it in our context but it might not be for all. As well as that, this is a library supported by the Redux maintainers, it isn’t a random library with three downloads a month from NPM. It is also backed by some very good documentation.
+
+It isn’t as powerful as Saga. Plain and simple. Redux Saga is incredibly flexible and very, very powerful. However, in the words of Mark Erikson - one of the Redux maintainers - “Sagas are a very powerful tool, but almost no apps need that power. Additionally, sagas have always been a poor choice for data fetching use cases.” We are yet to find anything that isn’t achievable in RTK Query that we can do in Redux Saga. We think the better development experience makes it worth using a tool that might not be as powerful.
+
+The library is still missing some stuff like built in debouncing or throttling. RTK is a pretty new ecosystem. It is still missing some things built in that Saga already has. Debouncing is a pretty common thing that FEDs so, so having to do that manually is a little annoying, but fairly trivial to do. Hopefully it comes in time, but as a workaround for now, it’s possibly to implement that in plain old Javascript.
+
+
+example of how to do in sagas
+example of how to do it with RTK
+
+
+RTK listerners
+RTl entity adaptors for search string api queris
